@@ -9,6 +9,7 @@ import awsGetCategories from "../../../database/aws/dynamo-categories";
 import { awsGetOffers } from "../../../database/aws/dynamo-offers";
 import awsGetStores from "../../../database/aws/dynamo-stores";
 import Store from "../../../models/store";
+import SanitizeURL from "../../../utils/sanitize-url";
 
 type Props = {
   description: string;
@@ -73,19 +74,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const categories = await awsGetCategories();
   const stores = await awsGetStores();
 
-  let targetCategory = "";
-
   const filteredOffers = offers.filter((offer) => {
-    if (offer.Categories[0] == description) {
+    if (SanitizeURL(offer.Categories[0]) == description) {
       return offer;
     }
   });
-  for (const category of categories) {
-    if (category.Description == description) {
-      targetCategory = category.Description;
-      break;
-    }
-  }
 
   return {
     props: {
