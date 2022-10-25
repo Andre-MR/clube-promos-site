@@ -5,7 +5,8 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    await res.revalidate("/offer/1/teste");
+    await res.revalidate("/");
+    // await res.revalidate("/categorias/001/description");
     return res.json({ revalidated: true });
   } catch (err) {
     return res.status(500).send("Error revalidating");

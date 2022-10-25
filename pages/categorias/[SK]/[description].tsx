@@ -11,6 +11,7 @@ import awsGetStores from "../../../database/aws/dynamo-stores";
 import Store from "../../../models/store";
 
 type Props = {
+  description: string;
   offers: Offer[];
   categories: Category[];
   stores: Store[];
@@ -40,21 +41,29 @@ const DescriptionPage: NextPage<Props> = (props) => {
           content="A shiny red apple with a bite taken out"
         />
       </Head>
-      <main className="flex h-screen flex-col justify-start bg-gradient-to-b from-gray-300 to-gray-100">
+
+      <main className="flex h-full flex-col bg-gradient-to-b from-gray-300 to-gray-100">
         <HeaderMain categories={props.categories} />
-        {props.offers.length > 0 ? (
-          <div className="my-24 grid h-full w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {props.offers.map((offer) => (
-              <Card key={offer.SK} offer={offer} stores={props.stores} />
-            ))}
+        <div className="mt-24 mb-4 flex h-full w-full">
+          <div className="w-full">
+            <h1 className="mx-2 my-1 flex justify-start text-2xl font-semibold tracking-wide text-gray-800">
+              {props.description}
+            </h1>
+            {props.offers.length > 0 ? (
+              <div className="mb-4 grid grid-cols-1 justify-center sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {props.offers.map((offer) => (
+                  <Card key={offer.SK} offer={offer} stores={props.stores} />
+                ))}
+              </div>
+            ) : (
+              <div className="flex h-[600px] w-full items-center justify-center text-2xl font-semibold sm:h-[500px]">
+                <p className="text-2xl font-semibold">
+                  {"Sem ofertas por enquanto :("}
+                </p>
+              </div>
+            )}
           </div>
-        ) : (
-          <div className="flex h-full">
-            <p className="flex w-full items-center justify-center text-2xl font-semibold">
-              {"Sem resultados :("}
-            </p>
-          </div>
-        )}
+        </div>
         <MainFooter />
       </main>
     </div>
@@ -96,11 +105,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
+      description: description,
       offers: filteredOffers,
       categories: categories,
       stores: stores,
     },
-    revalidate: 60,
+    // revalidate: 600,
   };
 };
 

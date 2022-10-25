@@ -52,7 +52,7 @@ const Home: NextPage<Props> = (props) => {
 
       <main className="flex h-full flex-col bg-gradient-to-b from-gray-300 to-gray-100">
         <HeaderMain categories={props.categories} />
-        <div className="mt-14 mb-4 flex h-full">
+        <div className="mt-24 mb-4 flex h-full">
           <CardGrid
             offers={offers}
             setOffers={setOffers}
@@ -80,7 +80,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const offers = await awsGetOffers({
     PK: PK,
     SK: SK,
-    limit: 10,
+    limit: 8,
   });
   // const offers = await getOffers(
   //   QueryPeriods.Days30,
@@ -97,6 +97,6 @@ export const getStaticProps: GetStaticProps = async () => {
       stores: stores,
       categories: categories,
     },
-    revalidate: 60,
+    // revalidate: 600,
   };
 };
