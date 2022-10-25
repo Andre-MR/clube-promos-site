@@ -10,7 +10,6 @@ const payload = {
   ExpressionAttributeValues: {
     ":PK": "CATEGORY",
   },
-  // ReturnConsumedCapacity: "TOTAL",
 };
 
 export default async function awsGetCategories(): Promise<Category[]> {

@@ -2,14 +2,11 @@ import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import HeaderMain from "../../components/header/header-main";
 import MainFooter from "../../components/footer/main-footer";
-import CardGrid from "../../components/card/card-main/card-grid";
 import Category from "../../models/category";
 import Offer from "../../models/offer";
 import awsGetCategories from "../../database/aws/dynamo-categories";
 import Store from "../../models/store";
-import { useState } from "react";
 import awsGetStores from "../../database/aws/dynamo-stores";
-import { FilterParameters } from "../../models/filter-parameters";
 import { awsGetOffers } from "../../database/aws/dynamo-offers";
 import Card from "../../components/card/card-main/card";
 
@@ -21,36 +18,14 @@ type Props = {
 };
 
 const Home: NextPage<Props> = (props) => {
-  const [offers, setOffers] = useState(props.offers);
-  // const [offersFiltered, setOffersFiltered] = useState(props.offers);
-  // const [categorySelected, setCategorySelected] = useState();
-  // const [filterParameters, setFilterParameters] = useState(
-  //   new FilterParameters()
-  // );
-
   return (
     <div className="h-full">
       <Head>
         <title>Clube Promos Alpha</title>
         <meta name="description" content="Clube Promos Versão Alpha" />
         <link rel="icon" href="/favicon.png" />
-
-        <meta
-          property="og:image"
-          content="https://i.pinimg.com/474x/f8/37/c7/f837c7636514518dbfcd20842967ec53.jpg"
-        />
-        <meta
-          property="og:image:secure_url"
-          content="https://i.pinimg.com/474x/f8/37/c7/f837c7636514518dbfcd20842967ec53.jpg"
-        />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="400" />
-        <meta property="og:image:height" content="300" />
-        <meta
-          property="og:image:alt"
-          content="A shiny red apple with a bite taken out"
-        />
       </Head>
+
       <main className="flex h-full flex-col bg-gradient-to-b from-gray-300 to-gray-100">
         <HeaderMain categories={props.categories} />
         <div className="mt-24 mb-4 flex h-full w-full">

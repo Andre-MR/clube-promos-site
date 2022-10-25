@@ -24,22 +24,6 @@ const DescriptionPage: NextPage<Props> = (props) => {
         <title>Clube Promos Alpha</title>
         <meta name="description" content="Clube Promos Versão Alpha" />
         <link rel="icon" href="/favicon.png" />
-
-        <meta
-          property="og:image"
-          content="https://i.pinimg.com/474x/f8/37/c7/f837c7636514518dbfcd20842967ec53.jpg"
-        />
-        <meta
-          property="og:image:secure_url"
-          content="https://i.pinimg.com/474x/f8/37/c7/f837c7636514518dbfcd20842967ec53.jpg"
-        />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="400" />
-        <meta property="og:image:height" content="300" />
-        <meta
-          property="og:image:alt"
-          content="A shiny red apple with a bite taken out"
-        />
       </Head>
 
       <main className="flex h-full flex-col bg-gradient-to-b from-gray-300 to-gray-100">
@@ -110,14 +94,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
       categories: categories,
       stores: stores,
     },
-    // revalidate: 600,
   };
 };
 
 export async function getStaticPaths() {
   const categories = await awsGetCategories();
   return {
-    // paths: []
     paths: categories.map((category) => ({
       params: { SK: category.SK, description: category.Description },
     })),

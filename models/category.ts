@@ -1,6 +1,6 @@
 export default interface Category {
-  PK: string; // CATEGORY#PRODUCT
-  SK: string; // 0001
+  PK: string; // CATEGORY
+  SK: string; // 001
 
   Active: boolean;
   Description: string; // name

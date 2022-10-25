@@ -15,7 +15,6 @@ export default function CardLogoSocialWhatsapp(props: Props) {
       href={`https://api.whatsapp.com/send?text=*${sanitizedURL.replace(
         /\*/g,
         ""
-        // )}*%0A${props.offer.Url}`}
       )}*%0A${process.env.NEXT_PUBLIC_MAIN_URL}/ofertas/${
         props.offer.SK
       }/${sanitizedURL}`}

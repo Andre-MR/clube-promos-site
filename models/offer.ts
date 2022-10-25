@@ -35,7 +35,7 @@ export default class Offer {
   }
 
   PK: string; // OFFER#2022
-  SK: string; // 20220901001
+  SK: string; // 20220101001
 
   Active: boolean;
   Campaigns: string[];

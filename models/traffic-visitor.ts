@@ -1,6 +1,6 @@
 export default interface TrafficVisitor {
   PK: string; // TRAFFIC#VISITOR#2022
-  SK: string; // 20220901001
+  SK: string; // 20220101001
 
   Active: boolean;
   Campaigns: string[];

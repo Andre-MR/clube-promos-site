@@ -6,9 +6,7 @@ export default function CardButton({ offer }: { offer: Offer }) {
       id="card-button-offer"
       className="my-2 flex justify-center text-xs text-gray-700"
     >
-      <div
-        className="flex h-full w-full items-center space-x-2 px-2" /*target={'_blank'} rel="noreferrer" href={offer.Url}*/
-      >
+      <div className="flex h-full w-full items-center space-x-2 px-2">
         <div
           className="flex h-full w-full items-center 
                         justify-between rounded border-2 border-dotted border-gray-500"

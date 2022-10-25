@@ -8,29 +8,6 @@ enum QueryPeriods {
   Years1 = "Years1",
 }
 
-async function saveOffer(
-  offer: Offer,
-  imageFile: Buffer | null
-): Promise<Offer> {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_MAIN_URL}/api/queries/offers`,
-    {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      // mode: 'cors', // no-cors, *cors, same-origin
-      // cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-      // credentials: 'same-origin', // include, *same-origin, omit
-      headers: {
-        "Content-Type": "application/json",
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      // redirect: "follow", // manual, *follow, error
-      referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-      body: JSON.stringify({ offer: offer, imageFile: imageFile }), // body data type must match "Content-Type" header
-    }
-  );
-  return await response.json();
-}
-
 async function fetchOffers(
   PK: string,
   SK: string,
@@ -108,27 +85,4 @@ async function getOffersDays(days: number, maxDate: string, limit: number) {
   }
 }
 
-// async function getOffersDays(days: number, maxDate: string, limit: number) {
-//   const highDate = new Date(maxDate);
-//   const lowDate = new Date(highDate);
-//   lowDate.setDate(lowDate.getDate() - days);
-//   if (lowDate.getFullYear() < highDate.getFullYear()) {
-//     const PK1 = `OFFER#${lowDate.getFullYear()}`;
-//     const SK1 = `${lowDate.getFullYear()}${(lowDate.getMonth() + 1)
-//       .toString()
-//       .padStart(2, "0")}${lowDate.getDate().toString().padStart(2, "0")}`;
-//     const result1 = await fetchOffers(PK1, SK1, limit);
-//     const PK2 = `OFFER#${highDate.getFullYear()}`;
-//     const SK2 = `${highDate.getFullYear()}`;
-//     const result2 = await fetchOffers(PK2, SK2, limit);
-//     return [...result1, ...result2];
-//   } else {
-//     const PK = `OFFER#${lowDate.getFullYear()}`;
-//     const SK = `${lowDate.getFullYear()}${(lowDate.getMonth() + 1)
-//       .toString()
-//       .padStart(2, "0")}${lowDate.getDate().toString().padStart(2, "0")}`;
-//     return await fetchOffers(PK, SK, limit);
-//   }
-// }
-
-export { saveOffer, getOffers, getOffersBySK, QueryPeriods };
+export { getOffers, getOffersBySK, QueryPeriods };

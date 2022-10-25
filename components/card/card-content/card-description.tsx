@@ -12,9 +12,7 @@ export default function CardDescription({ offer }: { offer: Offer }) {
               : `${offer.Description.substring(0, 200)}
         <a href="/">...mais</a>`,
         }}
-      >
-        {/* {offer.Description.length < 200 ? offer.Description : `${offer.Description.substring(0, 200)} ...mais`} */}
-      </p>
+      ></p>
     </div>
   );
 }

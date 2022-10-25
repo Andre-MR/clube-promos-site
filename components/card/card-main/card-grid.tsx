@@ -1,10 +1,6 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import {
-  getOffers,
-  getOffersBySK,
-  QueryPeriods,
-} from "../../../database/queries/offers-queries";
+import { getOffersBySK } from "../../../database/queries/offers-queries";
 import { FilterParameters } from "../../../models/filter-parameters";
 import Offer from "../../../models/offer";
 import Store from "../../../models/store";
@@ -43,12 +39,6 @@ export default function CardGrid(props: Props) {
       <h1 className="mx-2 my-1 flex justify-start text-2xl font-semibold tracking-wide text-gray-800">
         {props.category ? props.category : "Ofertas em destaque"}
       </h1>
-
-      {/* <div className="grid grid-cols-1 justify-center sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {props.offers.map((offer) => (
-          <Card key={offer.SK} offer={offer} stores={props.stores} />
-        ))}
-      </div> */}
       <InfiniteScroll
         className="mb-4 grid grid-cols-1 justify-center sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         dataLength={props.offers.length}
@@ -59,12 +49,6 @@ export default function CardGrid(props: Props) {
             Carregando...
           </div>
         }
-        // endMessage={
-        //   <div className="mb-4 place-self-center self-center justify-self-center text-center">
-        //     Todas ofertas carregadas.
-        //   </div>
-        // }
-        // scrollThreshold={0.99}
       >
         {props.offers.map((offer) => (
           <Card key={offer.SK} offer={offer} stores={props.stores} />

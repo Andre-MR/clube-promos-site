@@ -11,7 +11,6 @@ export default function CardImage({ offer }: { offer: Offer }) {
         href={offer ? offer.Url : ""}
       >
         <Image
-          // src={offer ? offer.ImageUrl : ''}
           src={offer.ImageUrl}
           priority={true}
           alt="Offer Image"
@@ -22,11 +21,6 @@ export default function CardImage({ offer }: { offer: Offer }) {
           blurDataURL={offer.ImageUrl}
           placeholder="empty"
         />
-        {/* <img
-          src={offer.ImageUrl}
-          className="flex h-full object-contain"
-          alt=""
-        ></img> */}
       </a>
     </div>
   );

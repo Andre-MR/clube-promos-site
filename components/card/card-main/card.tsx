@@ -60,7 +60,6 @@ export default function Card(props: Props) {
         <CardLogos offer={props.offer} stores={props.stores} />
         <CardHeader offer={props.offer} />
         <CardContent offer={props.offer} />
-        {/* <CardFooter {...{ offer, views }} /> */}
         <CardFooter offer={props.offer} />
       </div>
     </div>
