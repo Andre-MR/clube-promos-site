@@ -47,7 +47,7 @@ export default OfferPage;
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { SK, title } = context.params!;
-  const offer = await awsGetOffers({
+  const offers = await awsGetOffers({
     PK: "OFFER#2022",
     SK: SK as string,
     limit: 1,
@@ -57,7 +57,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      offer: offer[0],
+      offer: offers[0],
       categories: categories,
       stores: stores,
     },
@@ -65,8 +65,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export async function getStaticPaths() {
+  const offers = await awsGetOffers({
+    PK: "OFFER#2022",
+    SK: "20221001001",
+    limit: 1,
+  });
   return {
-    paths: [{ params: { SK: "20221001001", title: "teste" } }],
+    paths: [{ params: { SK: offers[0].SK, title: offers[0].Title } }],
     fallback: "blocking",
   };
 }
