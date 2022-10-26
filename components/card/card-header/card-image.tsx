@@ -20,6 +20,7 @@ export default function CardImage({ offer }: { offer: Offer }) {
           objectFit="contain"
           blurDataURL={offer.ImageUrl}
           placeholder="empty"
+          loading="eager"
         />
       </a>
     </div>
