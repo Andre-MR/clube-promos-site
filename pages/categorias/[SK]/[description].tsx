@@ -75,7 +75,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const stores = await awsGetStores();
 
   const filteredOffers = offers.filter((offer) => {
-    if (SanitizeURL(offer.Categories[0]) == description) {
+    if (
+      offer.Categories[0] &&
+      SanitizeURL(offer.Categories[0]) == description
+    ) {
       return offer;
     }
   });
@@ -94,7 +97,10 @@ export async function getStaticPaths() {
   const categories = await awsGetCategories();
   return {
     paths: categories.map((category) => ({
-      params: { SK: category.SK, description: category.Description },
+      params: {
+        SK: category.SK,
+        description: SanitizeURL(category.Description),
+      },
     })),
     fallback: "blocking",
   };

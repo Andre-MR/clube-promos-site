@@ -10,6 +10,7 @@ import awsGetCategories from "../../../database/aws/dynamo-categories";
 import { awsGetOffers } from "../../../database/aws/dynamo-offers";
 import awsGetStores from "../../../database/aws/dynamo-stores";
 import Store from "../../../models/store";
+import SanitizeURL from "../../../utils/sanitize-url";
 
 type Props = {
   offer: Offer;
@@ -71,7 +72,9 @@ export async function getStaticPaths() {
     limit: 1,
   });
   return {
-    paths: [{ params: { SK: offers[0].SK, title: offers[0].Title } }],
+    paths: [
+      { params: { SK: offers[0].SK, title: SanitizeURL(offers[0].Title) } },
+    ],
     fallback: "blocking",
   };
 }
