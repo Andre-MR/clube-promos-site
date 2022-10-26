@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import Offer from "../../../models/offer";
 import CardLogos from "../card-logos/card-logos";
 import CardHeader from "../card-header/card-header";
@@ -13,46 +13,46 @@ type Props = {
 };
 
 export default function Card(props: Props) {
-  const [viewed, setViewed] = useState(false);
-  const [views, setViews] = useState(props.offer.Views - 1);
+  // const [viewed, setViewed] = useState(false);
+  // const [views, setViews] = useState(props.offer.Views - 1);
 
-  useEffect(() => {
-    setViews(views + 1);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [viewed]);
+  // useEffect(() => {
+  //   setViews(views + 1);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [viewed]);
 
   let card: HTMLDivElement | null = null;
   const setCard = (element: HTMLDivElement) => {
     card = element;
   };
-  function isInViewport(e: HTMLDivElement) {
-    if (e) {
-      const rect = e.getBoundingClientRect();
-      return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <=
-          (window.innerHeight || document.documentElement.clientHeight) + 120 &&
-        rect.right <=
-          (window.innerWidth || document.documentElement.clientWidth)
-      );
-    }
-    return false;
-  }
+  // function isInViewport(e: HTMLDivElement) {
+  //   if (e) {
+  //     const rect = e.getBoundingClientRect();
+  //     return (
+  //       rect.top >= 0 &&
+  //       rect.left >= 0 &&
+  //       rect.bottom <=
+  //         (window.innerHeight || document.documentElement.clientHeight) + 120 &&
+  //       rect.right <=
+  //         (window.innerWidth || document.documentElement.clientWidth)
+  //     );
+  //   }
+  //   return false;
+  // }
 
-  if (typeof window !== "undefined" && !viewed) {
-    window.addEventListener(
-      "scroll",
-      function () {
-        if (isInViewport(card!)) {
-          setViewed(true);
-        }
-      },
-      {
-        passive: true,
-      }
-    );
-  }
+  // if (typeof window !== "undefined" && !viewed) {
+  //   window.addEventListener(
+  //     "scroll",
+  //     function () {
+  //       if (isInViewport(card!)) {
+  //         setViewed(true);
+  //       }
+  //     },
+  //     {
+  //       passive: true,
+  //     }
+  //   );
+  // }
 
   return (
     <div className="relative grid" ref={setCard}>
