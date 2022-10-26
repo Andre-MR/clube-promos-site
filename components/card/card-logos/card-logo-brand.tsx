@@ -7,7 +7,6 @@ export default function CardLogoBrand() {
         text-xs font-bold tracking-wide opacity-90"
     >
       <Image
-        className=""
         src="/images/logo-clubepromos.png"
         priority={true}
         alt="Store Logo"
