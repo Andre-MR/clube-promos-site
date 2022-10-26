@@ -6,7 +6,7 @@ export default function HeaderSearch() {
       <input
         className="w-full rounded p-2 text-xs"
         type={"text"}
-        placeholder="Pesquisar produto, categoria..."
+        placeholder="Pesquisar produto"
         onKeyDown={(e) => {
           if (e.key == "Enter") {
             router.push({
