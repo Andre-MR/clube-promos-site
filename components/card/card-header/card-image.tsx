@@ -12,7 +12,7 @@ export default function CardImage({ offer }: { offer: Offer }) {
       >
         <Image
           src={offer.ImageUrl}
-          priority={true}
+          // priority={true}
           alt="Offer Image"
           // width={200}
           // height={180}
