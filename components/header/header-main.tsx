@@ -36,12 +36,17 @@ export default function HeaderMain({ categories }: { categories: Category[] }) {
     <nav className="fixed top-0 z-30 m-auto flex w-full items-center justify-between bg-fuchsia-900">
       <div className="relative flex w-full flex-wrap items-center justify-between">
         <div className="relative z-10 flex w-full items-center justify-between px-2 pt-2">
-          <Link className="flex rounded-full border-2 border-white" href="/">
+          <Link
+            className="flex rounded-full border-2 border-white"
+            href="/"
+            prefetch={false}
+          >
             <Image
               className="cursor-pointer"
               src={"/images/logo-clubepromos.png"}
               width={40}
               height={40}
+              layout={"fixed"}
               alt={"logo clube promos"}
             />
           </Link>
@@ -89,7 +94,9 @@ export default function HeaderMain({ categories }: { categories: Category[] }) {
         >
           <ul className="py-4 px-5 text-right text-lg tracking-wide text-gray-600">
             <li className="block w-full py-3 hover:text-blue-500">
-              <Link href={"/"}>Home</Link>
+              <Link href={"/"} prefetch={false}>
+                Home
+              </Link>
             </li>
           </ul>
         </div>

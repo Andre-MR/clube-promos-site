@@ -22,8 +22,8 @@ const OfferPage: NextPage<Props> = (props) => {
   return (
     <div className="h-screen">
       <Head>
-        <title>Clube Promos Alpha</title>
-        <meta name="description" content="Clube Promos Versão Alpha" />
+        <title>Clube Promos Beta</title>
+        <meta name="description" content="Clube Promos Versão Beta" />
         <link rel="icon" href="/favicon.png" />
       </Head>
 

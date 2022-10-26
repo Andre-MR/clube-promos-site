@@ -15,6 +15,7 @@ export default function HeaderCategory(props: Props) {
         href={`/categorias/${props.category.SK}/${SanitizeURL(
           props.category.Description
         )}`}
+        prefetch={false}
       >
         <p className="text-white">{props.category.Description}</p>
       </Link>
