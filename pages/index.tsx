@@ -34,7 +34,7 @@ const Home: NextPage<Props> = (props) => {
       </Head>
 
       <main className="flex h-full flex-col bg-gradient-to-b from-gray-300 to-gray-100">
-        <HeaderMain categories={props.categories} />
+        {/* <HeaderMain categories={props.categories} /> */}
         <div className="mt-24 mb-4 flex h-full">
           <CardGrid
             offers={offers}
