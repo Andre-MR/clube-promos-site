@@ -73,6 +73,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const categories = await awsGetCategories();
   const stores = await awsGetStores();
+  let targetCategoryName = "";
+  for (const category of categories) {
+    if (SanitizeURL(category.Description) == description) {
+      targetCategoryName = category.Description;
+      break;
+    }
+  }
 
   const filteredOffers = offers.filter((offer) => {
     if (
@@ -85,7 +92,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      description: description,
+      description: targetCategoryName,
       offers: filteredOffers,
       categories: categories,
       stores: stores,
