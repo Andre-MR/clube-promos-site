@@ -27,7 +27,7 @@ export default function CardPrice({ offer }: { offer: Offer }) {
       )}
       <div
         id="card-price"
-        className="animate-wave flex items-center justify-center"
+        className="animate-wave flex items-center justify-center text-green-500"
       >
         <span className="text-sm font-semibold drop-shadow-md">R$</span>
         &nbsp;
