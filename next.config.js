@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["clubepromos.s3.sa-east-1.amazonaws.com"],
+    domains: [process.env.AWS_S3_DOMAIN],
   },
 };
 
