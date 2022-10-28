@@ -5,7 +5,7 @@ export default class Offer {
     this.SK = "";
     this.Active = true;
     this.Campaigns = [];
-    this.Categories = [];
+    this.Category = "";
     this.ClickedElements = {
       Button: 0,
       Description: 0,
@@ -39,7 +39,7 @@ export default class Offer {
 
   Active: boolean;
   Campaigns: string[];
-  Categories: string[];
+  Category: string;
   ClickedElements: {
     Button: number;
     Description: number;

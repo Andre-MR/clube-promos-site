@@ -21,9 +21,9 @@ const Home: NextPage<Props> = (props) => {
   return (
     <div className="h-full">
       <Head>
-        <title>Clube Promos Beta</title>
-        <meta name="description" content="Clube Promos Versão Beta" />
-        <link rel="icon" href="/favicon.png" />
+        <title>{process.env.NEXT_PUBLIC_MAIN_TITLE}</title>
+        <meta name="description" content={process.env.NEXT_PUBLIC_MAIN_TITLE} />
+        <link rel="icon" href="/favicon.png" as="image" />
       </Head>
 
       <main className="flex h-full flex-col bg-gradient-to-b from-gray-300 to-gray-100">

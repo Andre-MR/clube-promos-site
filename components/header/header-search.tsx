@@ -1,6 +1,8 @@
 import router from "next/router";
+import { useState } from "react";
 
 export default function HeaderSearch() {
+  const [searchText, setSearchText] = useState("");
   return (
     <div className="mx-2 flex w-2/3 space-x-1 rounded bg-white">
       <input
@@ -14,9 +16,19 @@ export default function HeaderSearch() {
             });
           }
         }}
+        onKeyUp={(e) => {
+          setSearchText(e.currentTarget.value);
+        }}
       />
 
-      <button className="flex w-10 items-center justify-center rounded bg-amber-400 text-xs text-white">
+      <button
+        className="flex w-10 items-center justify-center rounded bg-amber-400 text-xs text-white"
+        onClick={() => {
+          router.push({
+            pathname: `/busca/${searchText}`,
+          });
+        }}
+      >
         <svg
           aria-hidden="true"
           height="24px"

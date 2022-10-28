@@ -18,7 +18,10 @@ type Props = {
 
 export default function CardGrid(props: Props) {
   const [moreOffers, setMoreOffers] = useState(true);
+  const [loadingMessage, setLoadingMessage] = useState("");
+
   const getMoreOffers = async () => {
+    setLoadingMessage("Carregando...");
     const lastOfferSK = props.offers[props.offers.length - 1].SK;
     const lastDigit = Number.parseInt(
       lastOfferSK.charAt(lastOfferSK.length - 1)
@@ -29,6 +32,7 @@ export default function CardGrid(props: Props) {
       targetSK,
       5
     );
+    setLoadingMessage("");
     props.setOffers([...props.offers, ...newOffers]);
     if (props.offers.length > 50 || newOffers.length <= 0) {
       setMoreOffers(false);
@@ -44,16 +48,15 @@ export default function CardGrid(props: Props) {
         dataLength={props.offers.length}
         next={getMoreOffers}
         hasMore={moreOffers}
-        loader={
-          <div className="place-self-center self-center justify-self-center text-center">
-            Carregando...
-          </div>
-        }
+        loader={null}
       >
         {props.offers.map((offer) => (
           <Card key={offer.SK} offer={offer} stores={props.stores} />
         ))}
       </InfiniteScroll>
+      {loadingMessage ? (
+        <div className="mb-10 flex w-full justify-center">{loadingMessage}</div>
+      ) : null}
     </div>
   );
 }

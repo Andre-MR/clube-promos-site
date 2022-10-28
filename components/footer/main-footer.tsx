@@ -5,16 +5,16 @@ export default function MainFooter() {
               bg-fuchsia-900 p-2 shadow-md transition"
     >
       <div className="text-xxs flex w-full justify-between text-gray-200">
-        <p>© 2022, Clube Promos</p>
+        <p>{process.env.NEXT_PUBLIC_FOOTER_1}</p>
         <p>
           Veja também:{" "}
           <a
             className="font-bold"
-            href="https://clubebaby.com"
+            href={process.env.NEXT_PUBLIC_FOOTER_2}
             target={"_blank"}
             rel="noreferrer"
           >
-            Clube Baby
+            {process.env.NEXT_PUBLIC_FOOTER_3}
           </a>
         </p>
       </div>
