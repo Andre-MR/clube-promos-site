@@ -62,7 +62,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const PK = `OFFER#${today.getFullYear()}`;
   const SK = `${today.getFullYear().toString()}${(today.getMonth() + 1)
     .toString()
-    .padStart(2, "0")}${today.getDate().toString().padStart(2, "0")}`;
+    .padStart(2, "0")}${(today.getDate() + 1).toString().padStart(2, "0")}`;
   const offers = await awsGetOffers({
     PK: PK,
     SK: SK,

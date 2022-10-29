@@ -64,7 +64,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const offerPK = `OFFER#${today.getFullYear()}`;
   const offerSK = `${today.getFullYear().toString()}${(today.getMonth() + 1)
     .toString()
-    .padStart(2, "0")}${today.getDate().toString().padStart(2, "0")}`;
+    .padStart(2, "0")}${(today.getDate() + 1).toString().padStart(2, "0")}`;
   const offers = await awsGetOffers({
     PK: offerPK,
     SK: offerSK,
