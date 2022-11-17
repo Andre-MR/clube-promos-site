@@ -9,6 +9,7 @@ import Store from "../../models/store";
 import awsGetStores from "../../database/aws/dynamo-stores";
 import { awsGetOffers } from "../../database/aws/dynamo-offers";
 import Card from "../../components/card/card-main/card";
+import SanitizeURL from "../../utils/sanitize-url";
 
 type Props = {
   offers: Offer[];
@@ -69,7 +70,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     limit: 100,
   });
   const filteredOffers = offers.filter((offer) => {
-    return offer.Title.toLowerCase().includes(query!.toString().toLowerCase())
+    return SanitizeURL(offer.Title).includes(SanitizeURL(query!.toString()))
       ? offer
       : null;
   });
