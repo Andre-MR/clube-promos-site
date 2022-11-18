@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Offer from "../../../models/offer";
 
 export default function CardImage({ offer }: { offer: Offer }) {
