@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Offer from "../../../models/offer";
 
 export default function CardImage({ offer }: { offer: Offer }) {
@@ -12,15 +12,12 @@ export default function CardImage({ offer }: { offer: Offer }) {
       >
         <Image
           src={offer.ImageUrl}
-          // priority={true}
+          className="object-contain"
+          fill
+          sizes="100vw"
           alt="Offer Image"
-          // width={200}
-          // height={180}
-          layout="fill"
-          objectFit="contain"
           blurDataURL={offer.ImageUrl}
           placeholder="empty"
-          loading="eager"
         />
       </a>
     </div>
